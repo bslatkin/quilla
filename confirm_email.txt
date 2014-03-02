@@ -1,0 +1,29 @@
+You must confirm that you want this short-link by clicking here:
+
+http://{{pretty_hostname}}/{{target.key.name}}?secret={{target.secret}}
+
+
+The short-link to share is: http://{{pretty_hostname}}/{{target.key.name}}
+
+
+Your viewers will see:
+
+{{target.name}}
+
+{{prompt_message}}
+{% if target.website %}
+{{target.website}}{% endif %}
+
+
+Thanks!
+  Quilla
+
+http://{{pretty_hostname}}/
+
+
+
+---------
+
+If you have received this message in error, please email us:
+
+http://{{pretty_hostname}}/contact

@@ -1,0 +1,37 @@
+<font size="3">
+<b>You must confirm that you want this short-link by <a href="http://{{pretty_hostname}}/{{target.key.name}}?secret={{target.secret}}">clicking here!</a></b>
+</font>
+<font size="3">
+<br>
+<br>
+<br>
+The short-link to share is: <a href="http://{{pretty_hostname}}/{{target.key.name}}">http://{{pretty_hostname}}/{{target.key.name}}</a>
+<br>
+<br>
+<br>
+Your viewers will see:
+<br>
+<br>
+{{target.name}}
+<br>
+<pre>{{prompt_message}}</pre>
+<br>
+{% if target.website %}
+<a href="{{target.website}}">{{target.website}}</a>
+<br>
+<br>
+{% endif %}
+<hr>
+<br>
+<i>Thanks!</i>
+<br>
+~Quilla
+<br>
+<a href="http://{{pretty_hostname}}/">{{pretty_hostname}}</a>
+</font>
+<br>
+<br>
+<br>
+<font size="1">
+If you have received this message in error, <a href="http://{{pretty_hostname}}/contact">please email us</a>.
+</font>

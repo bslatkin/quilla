@@ -1,0 +1,8 @@
+total_storage_limit: 1G
+queue:
+- name: confirm
+  rate: 10/s
+- name: send
+  rate: 10/s
+- name: reflect
+  rate: 10/s

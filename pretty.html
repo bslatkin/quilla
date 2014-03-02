@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% if target %}
+  {% block title %}Quilla &rsaquo; {{target.name|default:'404'}}{% endblock %}
+  {% block meta_description %}{{target.message}}{% endblock %}
+{% endif %}
+
+{% block content %}
+
+{% if target and secret %}
+  {% include "edit_fragment.html" %}
+{% else %}
+  {% include "message_fragment.html" %}
+{% endif %}
+
+{% endblock %}

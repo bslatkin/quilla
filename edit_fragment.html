@@ -1,0 +1,82 @@
+<div class="yui3-u-1">
+  {% if target %}
+    <h1 class="page-title">
+      {% if target.enabled %}
+        Your link is active
+        <a href="/{{target.key.name}}" class="view-link">View &raquo;</a>
+      {% else %}
+        Your link is disabled
+      {% endif %}
+    </h1>
+    <div class="sub-title">Update settings below</div>
+  {% else %}
+    <h1 class="page-title">Create a link to email you</h1>
+    <div class="sub-title"></div>
+  {% endif %}
+</div>
+
+<div class="yui3-u-1">
+  <form method="post" accept-charset="utf-8" id="creation_form">
+    {% if target %}
+      <input type="hidden" name="target_name" value="{{target.key.name}}" id="target_id">
+    {% endif %}
+    {% if secret %}
+      <input type="hidden" name="secret" value="{{secret}}" id="secret">
+    {% endif %}
+    <div class="line-section">
+      <label for="email_address" class="sub-heading">Your email address</label>
+      <span class="helptext">Where contact form messages will go</span>
+      {% if target %}
+        <span class="permanent-value" id="email_address">{{target.destination_email}}</span>
+      {% else %}
+        <input type="text" name="email_address" id="email_address"
+               class="yui3-u-5-8" value="">
+      {% endif %}
+    </div>
+    <div class="line-section">
+      <label for="your_name" class="sub-heading">What the new link is for</label>
+      <span class="helptext">Shown to people contacting you</span>
+      <input type="text" name="your_name" id="your_name"
+             class="yui3-u-5-8" value="{% if target.name %}{{target.name}}{% endif %}">
+    </div>
+    <div class="line-section">
+      <label for="website" class="sub-heading">Website</label>
+      <span class="helptext">Link people to your website (optional)</span>
+      <input type="text" name="website" id="website"
+             class="yui3-u-5-8" value="{% if target.website %}{{target.website}}{% endif %}">
+    </div>
+    <div class="message-section">
+      <label for="welcome_message" class="sub-heading">Detail message</label>
+      <span class="helptext">Explain what people should write
+        {% if not target %}(you can change this later){% endif %}
+      </span>
+      <textarea name="welcome_message" id="welcome_message">{% if target.message %}{{target.message}}{% endif %}</textarea>
+    </div>
+    <div class="line-section">
+      <label for="login_required" class="sub-heading">Require login</label>
+      <input type="checkbox" name="login_required" id="login_required"
+          {% if target and not target.anonymous %}checked="checked"{% endif %}
+          autocomplete="off" value="true">
+      <span class="helptext">Senders will have to sign in via their Google Account</span>
+    </div>
+    <div class="save-section yui3-g" align="left">
+      <div class="yui3-u-1-8" align="left">
+        {% if target %}
+          <input type="submit" value="{% if target.enabled %}Update{% else %}Enable{% endif %}" id="save_button">
+        {% else %}
+          <input type="submit" value="Create" id="save_button">
+        {% endif %}
+      </div>
+      <div class="yui3-u-5-8" id="save-status"></div>
+      <div class="yui3-u-1-8" align="right">
+      {% if target and target.enabled %}
+          <input type="submit" value="Disable" id="delete_button">
+        </div>
+      {% endif %}
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  initSaveForm('{% if target %}{{target.key.name}}{% endif %}', '{{secret}}');
+</script>

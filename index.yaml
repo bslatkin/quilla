@@ -1,0 +1,7 @@
+indexes:
+
+- kind: T
+  properties:
+  - name: enabled
+  - name: creation_time
+    direction: desc

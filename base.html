@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="{% block meta_description %}Short-links where people can contact you for a purpose.{% endblock %}">
+  <meta content="width=device-width" name="viewport">
+
+  <!-- Copyright 2011 Brett Slatkin (brett@haxor.com) -->
+  <title>{% block title %}Quilla &rsaquo; Short-links for email.{% endblock %}</title>
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  {# External scripts or ones that don't change often. #}
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssfonts/fonts-min.css&3.3.0/build/cssgrids/grids-min.css">
+  <script type="text/javascript" src="/static/jquery.history.js"></script>
+  <script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+
+  {# Cache-sensitive scripts and styling. #}
+  <link rel="stylesheet" href="/static/{{version_id}}/ui.css" type="text/css" charset="utf-8">
+  <script type="text/javascript" src="/static/{{version_id}}/ui.js"></script>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '']);  // Set your analytics site ID here!
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body>
+
+{% if not target_name %}
+  {% include "footer.html" %}
+{% endif %}
+
+<div id="container"><div class="yui3-g"><!-- wrapper -->
+
+<div id="primary">
+  {% block content %}{% endblock %}
+</div>
+
+</div></div><!-- wrapper -->
+
+{% if target_name %}
+  {% include "footer.html" %}
+{% endif %}
+
+<script type="text/javascript" charset="utf-8">
+  initFooter();
+</script>
+
+</body>
+</html>

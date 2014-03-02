@@ -1,0 +1,2 @@
+- Email reflecting
+  - Handle plus email addresses for destinations (this log message: Outbound email with target_name='EM73C', target_address=u'bslatkin+wii@gmail.com', from='bslatkin@gmail.com', to='EM73C+5vuwt36czbslknyhqqz2crllkecx53hy@quil-la.appspotmail.com' not permitted)

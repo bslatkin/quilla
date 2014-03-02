@@ -1,0 +1,21 @@
+<font size="3">
+<pre>
+{{message}}
+</pre>
+<br>
+</font>
+<hr>
+<br>
+<font size="2">
+{{reply_to}} was prompted with:
+<br>
+<br>
+{{target.name}}
+<br>
+<pre>
+{{prompt_message}}
+</pre>
+{% if target.website %}
+<a href="{{target.website}}">{{target.website}}</a>
+{% endif %}
+</font>

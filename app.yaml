@@ -1,0 +1,36 @@
+application: test-app-id
+version: testing-only
+runtime: python27
+threadsafe: yes
+api_version: 1
+
+builtins:
+- remote_api: on
+
+inbound_services:
+- warmup
+- mail
+
+libraries:
+- name: django
+  version: "1.3"
+
+handlers:
+- url: /favicon\.ico
+  static_files: static/favicon.ico
+  upload: static/favicon\.ico
+
+# Put a version number in the URL for cache busting
+- url: /static(/\d+)?/(.*)
+  static_files: static/\2
+  upload: static/.*
+
+- url: /(edit|view)?
+  script: main.app
+
+- url: /work/.*
+  script: main.app
+  login: admin
+
+- url: /.+
+  script: main.app
