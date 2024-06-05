@@ -14,7 +14,7 @@ Each submission on your short-link will send you an email. Replying to a message
 
 Short-links can be in two modes: captcha or login. In captcha mode, all that's required to send you an email is filling out a captcha. In login mode, users are required to login with their Google Account in order to send you an email.
 
-Quilla is also an email reflector. The short-link URL above can be emailed directly as FVZ3PMZC@quil-la.appspotmail.com. Replies to email messages will be reflected in both directions, allowing you to communicate with someone without revealing your email address.
+Quilla is also an email reflector. The short-link URL above can be emailed directly as FVZ3PMZC [with the domain] quil-la [separator] appspotmail [separator] com. Replies to email messages will be reflected in both directions, allowing you to communicate with someone without revealing your email address.
 
 #### See the live, free version:
 
